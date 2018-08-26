@@ -7,7 +7,7 @@
 When this tool is added to Nova, you can let users update their profile data without giving them access to the full
 User resource under 'Resources'.
 
-![screenshot of the backup tool](https://runlinenl.github.io/nova-profile-tool/screenshot.png)
+![screenshot of the backup tool](https://github.com/runlinenl/nova-profile-tool/raw/master/screenshot.png)
 
 ## Installation
 
