@@ -1,0 +1,55 @@
+{
+    "name": "runlinenl/nova-profile-tool",
+    "description": "A tool for Laravel Nova to allow users to edit their profile data",
+    "keywords": [
+        "laravel",
+        "nova",
+        "tool",
+        "profile"
+    ],
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../laravel-nova"
+        }
+    ],
+    "homepage": "https://github.com/runlinenl/nova-profile-tool",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Patrick Bergman",
+            "email": "patrick@runline.nl",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.1.0",
+        "laravel/nova": "*"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^3.6",
+        "phpunit/phpunit": "7.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Runline\\ProfileTool\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Runline\\ProfileTool\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Runline\\ProfileTool\\ToolServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
