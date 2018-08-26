@@ -5,7 +5,7 @@ namespace Runline\ProfileTool;
 use Laravel\Nova\Nova;
 use Laravel\Nova\Tool as BaseTool;
 
-class Tool extends BaseTool
+class ProfileTool extends BaseTool
 {
     /**
      * Perform any tasks that need to happen when the tool is booted.

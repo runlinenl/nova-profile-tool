@@ -2,14 +2,19 @@
 
 namespace Runline\ProfileTool\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Runline\ProfileTool\File;
 use Illuminate\Routing\Controller;
 
 class ToolController extends Controller
 {
-    public function index()
+    public function store()
     {
-        return 'Hello world!';
+        request()->validate([
+            'name' => 'required|string',
+            'email' => 'required|email'
+        ]);
+
+        auth()->user()->update(request()->only('name', 'email'));
+
+        return response()->json(__("Your profile has been updated!"));
     }
 }

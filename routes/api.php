@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
-| Tool API Routes
+| ProfileTool API Routes
 |--------------------------------------------------------------------------
 |
 | Here is where you may register API routes for your tool. These routes
@@ -14,4 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('endpoint', \Runline\ProfileTool\Http\Controllers\ToolController::class . '@index');
+Route::post('/', \Runline\ProfileTool\Http\Controllers\ToolController::class . '@store');
