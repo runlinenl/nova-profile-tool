@@ -10,7 +10,7 @@
     "repositories": [
         {
             "type": "path",
-            "url": "../laravel-nova"
+            "url": "../nova"
         }
     ],
     "homepage": "https://github.com/runlinenl/nova-profile-tool",
