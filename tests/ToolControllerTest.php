@@ -3,12 +3,15 @@
 namespace Runline\ProfileTool\Tests;
 
 use App\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Runline\ProfileTool\Http\Controllers\ToolController;
 use Runline\ProfileTool\ProfileTool;
 use Symfony\Component\HttpFoundation\Response;
 
 class ToolControllerTest extends TestCase
 {
+    use RefreshDatabase;
+
     /** @test */
     public function it_can_can_return_update_user_data()
     {
