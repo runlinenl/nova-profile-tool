@@ -28,7 +28,7 @@ public function tools()
 {
     return [
         // ...
-        new \Runline\ProfileTool\Tool(),
+        new \Runline\ProfileTool\ProfileTool,
     ];
 }
 ```
