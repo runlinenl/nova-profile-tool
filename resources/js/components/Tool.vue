@@ -37,35 +37,31 @@
     export default {
 
         data: () => ({
-            loading: false,
-            fields: [
-                {
-                    component: "text-field",
-                    prefixComponent: true,
-                    indexName: "Name",
-                    name: "Name",
-                    attribute: "name",
-                    value: Nova.config.user.name,
-                    panel: null,
-                    sortable: false,
-                    textAlign: "left"
-                },
-                {
-                    component: "text-field",
-                    prefixComponent: true,
-                    indexName: "E-mailaddress",
-                    name: "E-mailaddress",
-                    attribute: "email",
-                    value: Nova.config.user.email,
-                    panel: null,
-                    sortable: false,
-                    textAlign: "left"
-                }
-            ],
+            loading: true,
+            fields: [],
             validationErrors: new Errors(),
         }),
 
+        created() {
+            this.getFields()
+        },
+
         methods: {
+            /**
+             * Get the available fields for the resource.
+             */
+            async getFields() {
+                this.fields = []
+
+                const { data: fields } = await Nova.request().get(
+                    '/nova-vendor/runlinenl/nova-profile-tool'
+                )
+
+                console.log(fields)
+
+                this.fields = fields
+                this.loading = false
+            },
 
             /**
              * Saves the user's profile
@@ -74,11 +70,13 @@
                 try {
                     const response = await this.createRequest()
 
-
                     this.$toasted.show(
                         this.__('Your profile has been saved!'),
                         { type: 'success' }
                     )
+
+                    // Reset the form by refetching the fields
+                    this.getFields()
 
                     this.validationErrors = new Errors()
                 } catch (error) {
