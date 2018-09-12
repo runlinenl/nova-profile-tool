@@ -68,7 +68,9 @@
              */
             async saveProfile() {
                 try {
+                    this.loading = true
                     const response = await this.createRequest()
+                    this.loading = false
 
                     this.$toasted.show(
                         this.__('Your profile has been saved!'),
@@ -80,6 +82,7 @@
 
                     this.validationErrors = new Errors()
                 } catch (error) {
+                    this.loading = false
                     if (error.response.status == 422) {
                         this.validationErrors = new Errors(error.response.data.errors)
                     }
