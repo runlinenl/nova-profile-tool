@@ -23,8 +23,8 @@ class ToolController extends Controller
             [
                 "component" => "text-field",
                 "prefixComponent" => true,
-                "indexName" => "E-mailaddress",
-                "name" => "E-mailaddress",
+                "indexName" => "E-mail address",
+                "name" => "E-mail address",
                 "attribute" => "email",
                 "value" => auth()->user()->email,
                 "panel" => null,
