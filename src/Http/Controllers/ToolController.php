@@ -12,8 +12,8 @@ class ToolController extends Controller
             [
                 "component" => "text-field",
                 "prefixComponent" => true,
-                "indexName" => "Name",
-                "name" => "Name",
+                "indexName" => __("Name"),
+                "name" => __("Name"),
                 "attribute" => "name",
                 "value" => auth()->user()->name,
                 "panel" => null,
@@ -23,8 +23,8 @@ class ToolController extends Controller
             [
                 "component" => "text-field",
                 "prefixComponent" => true,
-                "indexName" => "E-mail address",
-                "name" => "E-mail address",
+                "indexName" => __("E-mail address"),
+                "name" => __("E-mail address"),
                 "attribute" => "email",
                 "value" => auth()->user()->email,
                 "panel" => null,
@@ -34,8 +34,8 @@ class ToolController extends Controller
             [
                 "component" => "password-field",
                 "prefixComponent" => true,
-                "indexName" => "Password",
-                "name" => "Password",
+                "indexName" => __("Password"),
+                "name" => __("Password"),
                 "attribute" => "password",
                 "value" => null,
                 "panel" => null,
@@ -45,8 +45,8 @@ class ToolController extends Controller
             [
                 "component" => "password-field",
                 "prefixComponent" => true,
-                "indexName" => "Password Confirmation",
-                "name" => "Password Confirmation",
+                "indexName" => __("Password Confirmation"),
+                "name" => __("Password Confirmation"),
                 "attribute" => "password_confirmation",
                 "value" => null,
                 "panel" => null,
