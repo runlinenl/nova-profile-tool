@@ -67,7 +67,9 @@ class ToolController extends Controller
             'password' => 'nullable|string|confirmed'
         ]);
 
-        if(request()->has('password')) {
+        $dataChanged = auth()->user()->getDirty();
+
+        if(in_array('password', $dataChanged)) {
             auth()->user()->update([
                 'name' => request('name'),
                 'email' => request('email'),
