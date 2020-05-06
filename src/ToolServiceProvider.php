@@ -19,6 +19,16 @@ class ToolServiceProvider extends ServiceProvider
     {
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'nova-profile-tool');
 
+        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'nova-profile-tool');
+
+        $this->publishes([
+         __DIR__ . '/../config/nova-profile-tool.php' => config_path('nova-profile-tool.php'),
+        ], 'config');
+
+        $this->publishes([
+          __DIR__.'/../resources/lang' => resource_path('lang/vendor/nova-profile-tool'),
+        ]);
+
         $this->app->booted(function () {
             $this->routes();
         });
@@ -40,7 +50,7 @@ class ToolServiceProvider extends ServiceProvider
         }
 
         Route::middleware(['nova', Authorize::class])
-                ->prefix('nova-vendor/runlinenl/nova-profile-tool')
+                ->prefix('nova-vendor/nova-profile-tool')
                 ->group(__DIR__.'/../routes/api.php');
     }
 
@@ -51,6 +61,9 @@ class ToolServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->mergeConfigFrom(
+           __DIR__ . '/../config/nova-profile-tool.php',
+           'nova-profile-tool'
+       );
     }
 }
