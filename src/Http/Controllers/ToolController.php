@@ -18,8 +18,9 @@ class ToolController extends Controller
               $field['value'] = auth()->user()->{$field['value']};
           }
 
-          $field['name'] = ucfirst(__("validation.attributes." . $field['attribute']));
-          $field['indexName'] = ucfirst(__("validation.attributes." . $field['attribute']));
+          $field['name'] = $field['name'] ?? ucfirst(__(str_replace('_',' ',$field['attribute'])));
+          $field['indexName'] = $field['indexName'] ?? ucfirst(__(str_replace('_',' ',$field['attribute'])));
+          $field['validationKey'] = $field['validationKey'] ?? $field['attribute'];
 
           $fields[] = $field;
         }
@@ -33,6 +34,11 @@ class ToolController extends Controller
     public function store()
     {
         $validations = config('nova-profile-tool.validations');
+
+        // unique email except auth user's email
+        if($validations['email']){
+            $validations['email'] = $validations['email'].'|unique:users,email,'.auth()->id();
+        }
 
         request()->validate($validations);
 
