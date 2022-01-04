@@ -54,7 +54,7 @@
                 this.fields = []
 
                 const { data: fields } = await Nova.request().get(
-                    '/nova-vendor/nova-profile-tool/'
+                    '/nova-vendor/nova-profile-tool'
                 )
 
                 console.log(fields)
@@ -94,7 +94,7 @@
              */
             createRequest() {
                 return Nova.request().post(
-                    '/nova-vendor/nova-profile-tool/',
+                    '/nova-vendor/nova-profile-tool',
                     this.createResourceFormData()
                 )
             },
